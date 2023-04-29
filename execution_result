@@ -1,20 +1,19 @@
-A function update is still in progress so the invocation went to the previously deployed code and configuration.
-
 Test Event Name
-(unsaved) testpylambda
+testpylambda
 
 Response
 {
   "statusCode": 200,
   "region": "us-east-1",
+  "DB_HOST": "my_lambda_rds",
   "body": "\"Hello John Smith!\""
 }
 
 Function Logs
-START RequestId: 79df92bd-adcb-4ba8-8fa0-fa33b52e9fd9 Version: $LATEST
-[INFO]	2023-04-29T11:36:35.221Z	79df92bd-adcb-4ba8-8fa0-fa33b52e9fd9	AWS Region of us-east-1
-END RequestId: 79df92bd-adcb-4ba8-8fa0-fa33b52e9fd9
-REPORT RequestId: 79df92bd-adcb-4ba8-8fa0-fa33b52e9fd9	Duration: 1.66 ms	Billed Duration: 2 ms	Memory Size: 128 MB	Max Memory Used: 36 MB	Init Duration: 131.31 ms
+START RequestId: 735ee327-cd94-449b-b918-1877e21fb398 Version: $LATEST
+[INFO]	2023-04-29T11:49:15.138Z	735ee327-cd94-449b-b918-1877e21fb398	AWS Region of us-east-1
+END RequestId: 735ee327-cd94-449b-b918-1877e21fb398
+REPORT RequestId: 735ee327-cd94-449b-b918-1877e21fb398	Duration: 1.28 ms	Billed Duration: 2 ms	Memory Size: 128 MB	Max Memory Used: 37 MB
 
 Request ID
-79df92bd-adcb-4ba8-8fa0-fa33b52e9fd9
+735ee327-cd94-449b-b918-1877e21fb398
