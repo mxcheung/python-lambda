@@ -1,10 +1,13 @@
+import os
 import json
 
 def lambda_handler(event, context):
     # TODO implement
+    json_region = os.environ['AWS_REGION']
     response = get_response(event)
     return {
         'statusCode': 200,
+        'region': json_region,
         'body': json.dumps(response)
     }
 
