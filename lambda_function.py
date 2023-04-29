@@ -1,9 +1,15 @@
 import os
 import json
+import logging
+
+logger = logging.getLogger()
+logger.setLevel(logging.INFO)
+
 
 def lambda_handler(event, context):
     # TODO implement
     json_region = os.environ['AWS_REGION']
+    logger.info('AWS Region of %s', json_region)
     response = get_response(event)
     return {
         'statusCode': 200,
