@@ -1,0 +1,17 @@
+Test Event Name
+(unsaved) testpylambda
+
+Response
+{
+  "statusCode": 200,
+  "region": "us-east-1",
+  "body": "\"Hello John Smith!\""
+}
+
+Function Logs
+START RequestId: 1f2050f9-c664-4bc3-85ca-f12d91cb6b21 Version: $LATEST
+END RequestId: 1f2050f9-c664-4bc3-85ca-f12d91cb6b21
+REPORT RequestId: 1f2050f9-c664-4bc3-85ca-f12d91cb6b21	Duration: 1.43 ms	Billed Duration: 2 ms	Memory Size: 128 MB	Max Memory Used: 36 MB	Init Duration: 107.21 ms
+
+Request ID
+1f2050f9-c664-4bc3-85ca-f12d91cb6b21
