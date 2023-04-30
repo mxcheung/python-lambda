@@ -13,3 +13,8 @@ print(c.hump(s))
 # This is a Sentence That Needs CamelCasing!
 
 print('Hello, world!')
+
+============================
+
+ec2-user@ip-172-31-28-211 ~]$ python3 hello.py 
+This is a Sentence That Needs CamelCasing!
