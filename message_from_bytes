@@ -1,0 +1,19 @@
+import email
+
+# Assuming you have a byte string containing the email content
+email_bytes = b"From: sender@example.com\r\nTo: recipient@example.com\r\nSubject: Test Email\r\n\r\nThis is the body of the email."
+
+# Create an EmailMessage object from the byte string
+message = email.message_from_bytes(email_bytes)
+
+# Extract the relevant information from the message
+sender = message["From"]
+recipient = message["To"]
+subject = message["Subject"]
+body = message.get_payload()
+
+# Print the extracted information
+print("Sender:", sender)
+print("Recipient:", recipient)
+print("Subject:", subject)
+print("Body:", body)
