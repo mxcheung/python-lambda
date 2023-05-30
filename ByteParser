@@ -1,0 +1,14 @@
+from email.parser import BytesParser
+
+# Assuming you have a byte string containing the email content
+email_bytes = b"From: sender@example.com\r\nTo: recipient@example.com\r\nSubject: Test Email\r\n\r\nThis is the body of the email."
+
+# Create an EmailMessage object from the byte string
+parser = BytesParser()
+message = parser.parsebytes(email_bytes)
+
+# Check if the message is multipart
+if message.is_multipart():
+    print("The message is multipart.")
+else:
+    print("The message is not multipart.")
