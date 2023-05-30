@@ -1,11 +1,22 @@
-from email.parser import BytesParser
+import email
+from email.mime.multipart import MIMEMultipart
+from email.mime.text import MIMEText
 
-# Assuming you have a byte string containing the email content
-email_bytes = b"From: sender@example.com\r\nTo: recipient@example.com\r\nSubject: Test Email\r\n\r\nThis is the body of the email."
+# Create a multipart message
+message = MIMEMultipart()
+message["From"] = "sender@example.com"
+message["To"] = "recipient@example.com"
+message["Subject"] = "Test Email"
 
-# Create an EmailMessage object from the byte string
-parser = BytesParser()
-message = parser.parsebytes(email_bytes)
+# Add a plain text body part
+body = "This is the plain text body."
+plain_text_part = MIMEText(body, "plain")
+message.attach(plain_text_part)
+
+# Add an HTML body part
+html_body = "<html><body><h1>This is the HTML body.</h1></body></html>"
+html_part = MIMEText(html_body, "html")
+message.attach(html_part)
 
 # Check if the message is multipart
 if message.is_multipart():
