@@ -40,3 +40,5 @@ tables = dynamodb_client.list_tables()
 
 # Rest of your code...
 
+export AWS_DEFAULT_REGION=your_desired_region
+
