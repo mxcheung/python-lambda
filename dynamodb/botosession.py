@@ -13,3 +13,5 @@ response = s3_client.list_buckets()
 instances = ec2_client.describe_instances()
 
 # Rest of your code...
+
+Connection was closed before we received a valid response from endpoint URL: "https://s3.amazonaws.com/".
