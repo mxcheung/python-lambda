@@ -1,0 +1,22 @@
+import boto3
+
+def scan_index_and_get_column_values(table_name, index_name, column_name):
+    dynamodb = boto3.resource('dynamodb')
+    table = dynamodb.Table(table_name)
+
+    response = table.scan(
+        IndexName=index_name,
+        ProjectionExpression=column_name
+    )
+
+    items = response['Items']
+    column_values = {item[column_name] for item in items}
+    return column_values
+
+# Example usage
+table_name = 'your_table_name'
+index_name = 'your_index_name'
+column_name = 'your_column_name'
+
+result = scan_index_and_get_column_values(table_name, index_name, column_name)
+print(result)
