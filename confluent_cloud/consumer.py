@@ -39,3 +39,7 @@ except KeyboardInterrupt:
 
 finally:
     consumer.close()
+
+
+
+Error: KafkaError{code=GROUP_AUTHORIZATION_FAILED,val=30,str="FindCoordinator response error: Group authorization failed."}
