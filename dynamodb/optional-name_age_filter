@@ -1,0 +1,38 @@
+import boto3
+
+def query_dynamodb(table_name, name=None, age=None):
+    # Create a DynamoDB resource object
+    dynamodb = boto3.resource('dynamodb')
+    
+    # Define the filter expression and expression attribute values
+    filter_expression = ""
+    expression_attribute_values = {}
+    
+    if name:
+        filter_expression += "attribute_name = :name"
+        expression_attribute_values[":name"] = name
+    
+    if age:
+        if filter_expression:
+            filter_expression += " AND "
+        filter_expression += "attribute_age = :age"
+        expression_attribute_values[":age"] = age
+    
+    # Retrieve the table
+    table = dynamodb.Table(table_name)
+    
+    # Perform the query with the filter expression
+    response = table.scan(FilterExpression=filter_expression,
+                          ExpressionAttributeValues=expression_attribute_values)
+    
+    # Print the items returned by the query
+    items = response['Items']
+    for item in items:
+        print(item)
+
+# Example usage
+table_name = 'YourTableName'
+name = 'John Doe'
+age = 30
+
+query_dynamodb(table_name, name=name, age=age)
