@@ -1,0 +1,13 @@
+Caused by: com.ibm.msg.client.jms.DetailedJMSSecurityException: JMSWMQ2013: The security authentication was not valid that was supplied for QueueManager 'xxx' with connection mode 'Client' and host name 'xxxxxxx(54501)'. Please check if the supplied username and password are correct on the QueueManager you are connecting to
+        at com.ibm.msg.client.wmq.common.internal.Reason.reasonToException(Reason.java:540)
+        at com.ibm.msg.client.wmq.common.internal.Reason.createException(Reason.java:236)
+        at com.ibm.msg.client.wmq.internal.WMQConnection.<init>(WMQConnection.java:453)
+        at com.ibm.msg.client.wmq.factories.WMQConnectionFactory.createV7ProviderConnection(WMQConnectionFactory.java:7192)
+        at com.ibm.msg.client.wmq.factories.WMQConnectionFactory.createProviderConnection(WMQConnectionFactory.java:6583)
+        at com.ibm.msg.client.jms.admin.JmsConnectionFactoryImpl.createConnection(JmsConnectionFactoryImpl.java:295)
+        at com.ibm.mq.jms.MQConnectionFactory.createCommonConnection(MQConnectionFactory.java:6232)
+        at com.ibm.mq.jms.MQConnectionFactory.createConnection(MQConnectionFactory.java:6260)
+        at com.abnamro.clearing.jms.util.MQConnectorUtil.connectQueueManager(MQConnectorUtil.java:117)
+        ... 8 more
+Caused by: com.ibm.mq.MQException: JMSCMQ0001: WebSphere MQ call failed with compcode '2' ('MQCC_FAILED') reason '2035' ('MQRC_NOT_AUTHORIZED').
+        at com.ibm.msg.client.wmq.common.internal.Reason.createException(Reason.java:223)
