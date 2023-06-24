@@ -7,3 +7,6 @@ https://stackify.com/aws-lambda-with-python-a-complete-getting-started-guide/
 
 
 https://repost.aws/knowledge-center/lambda-python-package-compatible
+
+
+ssh -i "cheungm-mqtt-dekooning.pem" ec2-user@ec2-18-142-226-158.ap-southeast-1.compute.amazonaws.com
