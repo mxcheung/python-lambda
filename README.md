@@ -22,3 +22,4 @@ aws sts get-caller-identity
 
 ~/.aws/credentials
 
+AKIARD3XUVSEFABSEZPL
