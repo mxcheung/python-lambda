@@ -1,0 +1,45 @@
+import org.everit.json.schema.Schema;
+import org.everit.json.schema.ValidationException;
+import org.json.JSONObject;
+import org.json.JSONTokener;
+
+public class JsonSchemaValidationExample {
+
+    public static void main(String[] args) {
+        String jsonData = "{\"name\": \"John\", \"age\": \"30\"}";
+
+        String schemaData = "{"
+                + "  \"$schema\": \"http://json-schema.org/draft-07/schema#\","
+                + "  \"type\": \"object\","
+                + "  \"properties\": {"
+                + "    \"name\": {"
+                + "      \"type\": \"string\""
+                + "    },"
+                + "    \"age\": {"
+                + "      \"type\": \"integer\""
+                + "    }"
+                + "  }"
+                + "}";
+
+        JSONObject json = new JSONObject(new JSONTokener(jsonData));
+        JSONObject schemaJson = new JSONObject(new JSONTokener(schemaData));
+
+        Schema schema = SchemaLoader.load(schemaJson);
+
+        try {
+            schema.validate(json);
+        } catch (ValidationException e) {
+            String pointer = e.getPointerToViolation();
+            String columnName = parseColumnName(pointer);
+            Object columnValue = json.query("/" + columnName);
+            
+            System.out.println("Validation failed for column: " + columnName);
+            System.out.println("Column value: " + columnValue);
+        }
+    }
+    
+    private static String parseColumnName(String pointer) {
+        int lastSlashIndex = pointer.lastIndexOf('/');
+        return pointer.substring(lastSlashIndex + 1);
+    }
+}
