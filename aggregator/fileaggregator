@@ -1,0 +1,39 @@
+import org.apache.camel.builder.RouteBuilder;
+import org.apache.camel.processor.aggregate.AggregationStrategy;
+import org.apache.camel.Exchange;
+
+public class FileAggregatorRoute extends RouteBuilder {
+    
+    private static final int CHUNK_SIZE = 1000;
+    private static final String INPUT_FOLDER = "path/to/input/folder";
+    private static final String OUTPUT_FOLDER = "path/to/output/folder";
+    
+    @Override
+    public void configure() throws Exception {
+        from("file:" + INPUT_FOLDER + "?delete=true")
+            .split().tokenize("\n").streaming()
+            .aggregate(new CustomAggregationStrategy())
+                .constant(true)
+                .completionSize(CHUNK_SIZE)
+                .completionTimeout(5000)
+            .marshal().join("\n")
+            .to("file:" + OUTPUT_FOLDER)
+            .end();
+    }
+    
+    private static class CustomAggregationStrategy implements AggregationStrategy {
+        @Override
+        public Exchange aggregate(Exchange oldExchange, Exchange newExchange) {
+            if (oldExchange == null) {
+                return newExchange;
+            }
+            
+            String oldBody = oldExchange.getIn().getBody(String.class);
+            String newBody = newExchange.getIn().getBody(String.class);
+            
+            oldExchange.getIn().setBody(oldBody + "\n" + newBody);
+            
+            return oldExchange;
+        }
+    }
+}
