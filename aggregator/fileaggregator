@@ -40,6 +40,7 @@ public class FileAggregatorRoute extends RouteBuilder {
     }
 }
 
+The aggregate method is used to accumulate lines until the completion size of 1000 lines is reached or a timeout of 5 seconds occurs.
 
 In this updated version, a new constant DONE_FOLDER is added, which represents the path to the folder where you want to move the aggregated files.
 
