@@ -7,6 +7,7 @@ public class FileAggregatorRoute extends RouteBuilder {
     private static final int CHUNK_SIZE = 1000;
     private static final String INPUT_FOLDER = "path/to/input/folder";
     private static final String OUTPUT_FOLDER = "path/to/output/folder";
+    private static final String DONE_FOLDER = "path/to/done/folder";
     
     @Override
     public void configure() throws Exception {
@@ -18,6 +19,7 @@ public class FileAggregatorRoute extends RouteBuilder {
                 .completionTimeout(5000)
             .marshal().join("\n")
             .to("file:" + OUTPUT_FOLDER)
+            .to("file:" + DONE_FOLDER)
             .end();
     }
     
@@ -37,3 +39,12 @@ public class FileAggregatorRoute extends RouteBuilder {
         }
     }
 }
+
+
+In this updated version, a new constant DONE_FOLDER is added, which represents the path to the folder where you want to move the aggregated files.
+
+After the aggregation process and saving the aggregated files to the output folder, the route includes an additional to("file:" + DONE_FOLDER) statement, which moves the processed files to the "done" folder.
+
+Remember to replace path/to/done/folder with the actual path to your desired "done" folder.
+
+Once again, ensure that you have the Apache Camel library in your classpath to execute this code successfully.
