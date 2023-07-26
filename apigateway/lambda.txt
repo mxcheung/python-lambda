@@ -1,0 +1,1 @@
+https://bwt38ujg3j.execute-api.ap-southeast-1.amazonaws.com/default/myapilambda
