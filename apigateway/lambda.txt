@@ -1,4 +1,9 @@
+# API 2
 https://bwt38ujg3j.execute-api.ap-southeast-1.amazonaws.com/default/myapilambda
+"Hello from API Gateway Lambda!"
 
-Fortunes
+# API 2
+Fortune Cook
+Dynamodb
 https://g1ufabhpif.execute-api.ap-southeast-1.amazonaws.com/default/mylambdafunction
+"A foolish man listens to his heart. A wise man listens to cookies."
