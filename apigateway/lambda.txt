@@ -1,1 +1,4 @@
 https://bwt38ujg3j.execute-api.ap-southeast-1.amazonaws.com/default/myapilambda
+
+Fortunes
+https://g1ufabhpif.execute-api.ap-southeast-1.amazonaws.com/default/mylambdafunction
